@@ -8,16 +8,14 @@ The application has been developed and tested with:
 * PHPUnit 3.7.29
 * Composer
 
-## How to run the application
-
-### Dependencies loading
+## Dependencies loading
 
 `composer install`
 
-### Run
+## Run the application
 
 `php application.php scrapeGrocerySite`
 
-## How to run tests
+## Run tests
 
 `phpunit --bootstrap vendor/autoload.php tests`
