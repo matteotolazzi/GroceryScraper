@@ -10,7 +10,6 @@ namespace TechnicalTest;
 
 use TechnicalTest\Curl;
 
-
 /**
  * Class which contains the methods needed by the application to scrape the main grocery site page
  * and the pages of every product.
@@ -25,12 +24,10 @@ class Scraper
 	private $curl;
 	private $lastCurlDownloadSize;
 
-
 	public function __construct(Curl $curl, $url)
 	{
 		$this->curl = $curl;
 		$this->mainUrl = $url;
-
 		$this->scraped = new \StdClass();
 		$this->scraped->results = array();
 		$this->scraped->total = 0;
@@ -53,7 +50,6 @@ class Scraper
 			if (!$scrapingSuccessful)
 				echo 'Scraping process failed!' . PHP_EOL;
 		}
-
 		return json_encode($this->scraped);
 	}
 
@@ -68,7 +64,6 @@ class Scraper
 	public function scrapeProducts(\DOMDocument $pageDom)
 	{
 		$pageXpath = new \DOMXpath($pageDom);
-
 		$productsLinks = $pageXpath->query("//div[@class='productInfo']/h3/a/@href");
 
 		if (! $productsLinks instanceof \DOMNodeList)
@@ -86,9 +81,7 @@ class Scraper
         		continue;
 
         	$pageSize = $this->lastCurlDownloadSize;
-
         	$productInfo = $this->scrapeProductDetailsAndBuildProduct($productDom, $pageSize);
-
         	$total += isset($productInfo->unit_price) ? $productInfo->unit_price : 0;
 
         	array_push($this->scraped->results, $productInfo);
@@ -109,9 +102,7 @@ class Scraper
 	public function scrapeProductDetailsAndBuildProduct(\DOMDocument $productDom, $pageSize)
 	{
 		$productInfo = new \StdClass();
-
 		$productXpath = new \DOMXpath($productDom);
-
 		do
 		{
 			//
@@ -128,8 +119,6 @@ class Scraper
 			// product unit_price
 			//
 			$productInfo->unit_price = $this->getProductAttribute($productXpath, "//div[@class='pricing']/p[@class='pricePerUnit']");
-
-
 			$productInfo->unit_price = str_replace('/unit', '', $productInfo->unit_price);
 			$productInfo->unit_price = str_replace('Â£', '', $productInfo->unit_price);
 			$productInfo->unit_price = trim($productInfo->unit_price);
@@ -155,7 +144,6 @@ class Scraper
 	private function getProductAttribute(\DOMXpath $productXpath, $query)
 	{
 		$attribute = '';
-
 		do
 		{
 			$productAttributeDOMNodeList = $productXpath->query($query);
@@ -215,7 +203,6 @@ class Scraper
         	// setting the size of the page obtained by curl
         	$this->lastCurlDownloadSize = $this->curl->getLastDownloadSize();
         }
-
         return $domDocument;
 	}
 

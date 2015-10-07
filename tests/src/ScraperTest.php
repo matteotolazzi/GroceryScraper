@@ -3,10 +3,8 @@
 use TechnicalTest\Scraper;
 use TechnicalTest\Curl;
 
-
 class ScraperTest extends PHPUnit_Framework_TestCase
 {
-
 	/**
 	 * Testing that Scraper->scrapeProductDetailsAndBuilProduct function can handle properly the expected
 	 * DOMDocument producing an object with the expected properties set.
@@ -19,7 +17,6 @@ class ScraperTest extends PHPUnit_Framework_TestCase
 		$testProductUnitPrice = 'Â£123.45/unit';
 		$testProductDescription = 'peperoni gialli';
 		$testSize = 1000;
-
 		$testProductUnitPrice_expected = '123.45';
 		$testSize_expected = '1.00kb';
 

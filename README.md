@@ -4,9 +4,9 @@ Console application that scrapes the grocery site in order to obtain a JSON arra
 
 The application has been developed and tested on:
 
-* PHP
+* PHP 5.5.14
+* PHPUnit 3.7.29
 * Composer
-* PHPUnit		
 
 ## How to run the application
 

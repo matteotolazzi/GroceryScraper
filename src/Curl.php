@@ -8,7 +8,6 @@
 
 namespace TechnicalTest;
 
-
 /**
  * Handles a curl request and offers methods to get the page requested and its size.
  *
@@ -17,7 +16,6 @@ namespace TechnicalTest;
  */
 class Curl
 {
-
     private $sizeDownload;
 
     /**
@@ -29,7 +27,6 @@ class Curl
      */
     public function getData($url) 
     {
-
         $ch = curl_init();
         $timeout = 60;
         curl_setopt($ch, CURLOPT_USERAGENT, 'Chrome/22.0.1216.0');
