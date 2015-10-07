@@ -2,6 +2,12 @@
 
 Console application that scrapes the grocery site in order to obtain a JSON array containing informations of all the products in the page.
 
+The application has been developed and tested on:
+
+* PHP
+* Composer
+* PHPUnit		
+
 ## How to run the application
 
 ### Dependencies loading
