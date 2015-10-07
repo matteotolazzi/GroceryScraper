@@ -1,8 +1,14 @@
 # Grocery Site Scraper
 
-Console application to scrape the grocery site in order to obtain a JSON array containing informations of all the products in the page.
+Console application that scrapes the grocery site in order to obtain a JSON array containing informations of all the products in the page.
 
 ## How to run the application
+
+### Dependencies loading
+
+`composer install`
+
+### Run
 
 `php application.php scrapeGrocerySite`
 
