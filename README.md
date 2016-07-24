@@ -19,3 +19,5 @@ The application has been developed and tested with:
 ## Run tests
 
 `phpunit --bootstrap vendor/autoload.php tests`
+
+v1.0.0
